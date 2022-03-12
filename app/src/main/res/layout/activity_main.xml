@@ -6,13 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/inputButtonSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/abschicken"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <TextView
+        android:id="@+id/outputChecksum"
+        android:layout_width="241dp"
+        android:layout_height="46dp"
+        android:text="@string/quersumme_matrikelnummer"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/inputButtonSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputMatnum"
+        app:layout_constraintVertical_bias="0.19999999" />
+
+    <EditText
+        android:id="@+id/inputMatnum"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:ems="10"
+        android:hint="@string/matrikelnummer_eingeben"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/outputServerReply"
+        android:layout_width="246dp"
+        android:layout_height="149dp"
+        android:hint="@string/r_ckgabe_des_servers"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/inputButtonSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outputChecksum"
+        app:layout_constraintVertical_bias="0.35000002" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
