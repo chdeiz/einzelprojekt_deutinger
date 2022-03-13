@@ -7,27 +7,29 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/inputButtonSend"
+        android:id="@+id/inputButtonChecksum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/abschicken"
+        android:text="@string/berechnen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintTop_toBottomOf="@+id/inputMatnum"
+        app:layout_constraintVertical_bias="0.19999999"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
     <TextView
         android:id="@+id/outputChecksum"
-        android:layout_width="241dp"
-        android:layout_height="46dp"
+        android:layout_width="192dp"
+        android:layout_height="51dp"
         android:text="@string/quersumme_matrikelnummer"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/inputButtonSend"
+        app:layout_constraintBottom_toTopOf="@+id/inputButtonChecksum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputMatnum"
-        app:layout_constraintVertical_bias="0.19999999" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <EditText
         android:id="@+id/inputMatnum"
@@ -49,12 +51,28 @@
         android:id="@+id/outputServerReply"
         android:layout_width="246dp"
         android:layout_height="149dp"
-        android:hint="@string/r_ckgabe_des_servers"
+        android:hint="@string/r_ckgabe_vom_server"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/inputButtonSend"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputButtonChecksum"
+        app:layout_constraintVertical_bias="0.177"
+        />
+
+    <Button
+        android:id="@+id/inputButtonSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/abschicken"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outputChecksum"
-        app:layout_constraintVertical_bias="0.35000002" />
+        app:layout_constraintTop_toBottomOf="@+id/outputServerReply"
+        app:layout_constraintVertical_bias="0.3"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

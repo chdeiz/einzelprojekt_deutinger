@@ -6,4 +6,6 @@
     <string name="quersumme_matrikelnummer">Quersumme Matrikelnummer:</string>
     <string name="r_ckgabe_des_servers">Rückgabe des Servers</string>
     <string name="textview">TextView</string>
+    <string name="berechnen">berechnen</string>
+    <string name="r_ckgabe_vom_server">Rückgabe vom Server</string>
 </resources>
