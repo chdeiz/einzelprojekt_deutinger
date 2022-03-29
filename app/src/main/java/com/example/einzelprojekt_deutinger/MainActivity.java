@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Double maxMatNumber = 9.E12; // max of 9 Billion people + 3 digits for uni + sem
-        final Double minMatNumber = 1000D; // min of three digits for university and semester
+        // final Double minMatNumber = 1000D; // min of three digits for university and semester
+        final int minLength = 4;
 
         Button btnCalc = findViewById(R.id.inputButtonChecksum);
         Button btnSend = findViewById(R.id.inputButtonSend);
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Matrikelnummer ist leer!\nBitte Matrikelnummer eingeben!", Toast.LENGTH_LONG).show();
                 } else if (matriculationString != null) {
                     matriculationDouble = Double.parseDouble(matriculationString);
-                    if (matriculationDouble < minMatNumber || matriculationDouble >= maxMatNumber) {
+                    if (matriculationString.length() < minLength || matriculationDouble >= maxMatNumber) {
                         Toast.makeText(MainActivity.this, "Matrikelnummer ist ungültig!\nBitte eine gültige Matrikelnummer eingeben!", Toast.LENGTH_LONG).show();
                     } else {
                         // mat. number is alright -> calc checksum
@@ -68,15 +69,15 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Matrikelnummer ist leer!\nBitte Matrikelnummer eingeben!", Toast.LENGTH_LONG).show();
                 } else if (matriculationString != null) {
                     matriculationDouble = Double.parseDouble(matriculationString);
-                    if (matriculationDouble < minMatNumber || matriculationDouble >= maxMatNumber) {
+                    if (matriculationString.length() < minLength || matriculationDouble >= maxMatNumber) {
                         Toast.makeText(MainActivity.this, "Matrikelnummer ist ungültig!\nBitte eine gültige Matrikelnummer eingeben!", Toast.LENGTH_LONG).show();
                     } else {
                         // mat. number is alright -> next steps send to Server and show reply
 
-                        String serverReply="";
+                        String serverReply = "";
                         // handle networking
                         try {
-                            serverReply+=handleConnection(matriculationString);
+                            serverReply += handleConnection(matriculationString);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             matnum /= 10;
         }
 
-        return Integer.toBinaryString(checksum);
+        return Integer.toBinaryString(checksum * 2);
     }
 
     /**
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         // create and send output to server
         DataOutputStream outToServer = new DataOutputStream(client.getOutputStream());
-        outToServer.writeBytes(matriculationNumber+"\n");
+        outToServer.writeBytes(matriculationNumber + "\n");
 
         // reply from server
         BufferedReader inFromServer = new BufferedReader(new InputStreamReader(client.getInputStream()));
